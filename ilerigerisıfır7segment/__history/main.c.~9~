@@ -1,0 +1,50 @@
+#include <main.h>
+   int sayac=0;
+   const int digit[10]={0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
+   
+   butonmap(){
+   
+   if(input(pin_c0)){
+     if(sayac<9){
+     delay_ms(500);
+     sayac++;     
+     }
+     else{
+     delay_ms(500);
+     sayac=0;  
+     }
+     }
+   else if(input(pin_c2)){
+     while(true){
+     if(input(pin_c0)||input(pin_c1)){
+     break;
+     }
+     if(sayac==0){
+     delay_ms(500);
+     output_b(0x6F);
+     sayac=9;
+     }
+     else{
+     delay_ms(500);
+     sayac--;
+     output_b(digit[sayac]);
+     }
+     }
+   }
+     
+     
+     return sayac;
+   }
+   
+void main()
+{
+   
+   
+   while(TRUE)
+   {
+   butonmap();
+   
+   }
+}
+
+

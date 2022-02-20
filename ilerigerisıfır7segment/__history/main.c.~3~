@@ -1,0 +1,31 @@
+#include <main.h>
+   int sayac=0;
+   
+   int butonmap(){
+   
+   if(input(pin_c0)){
+     if(sayac<10){
+     sayac++;
+     }
+     else{
+     sayac=0;
+     }
+     }
+     
+     
+     
+     return sayac;
+   }
+   
+void main()
+{
+   const int digit[10]={0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
+   
+   while(TRUE)
+   {
+   int donentus=butonmap();
+   output_b(digit[donentus]);
+   }
+}
+
+
